@@ -10,11 +10,12 @@ const LoginContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
 
+
     @media (max-width: 768px) {
         align-items: center;
         justify-content: center;
         flex-direction: column-reverse;
-        gap: 100px;
+
     }
 `
 
@@ -22,10 +23,14 @@ const LottieContainer = styled.div`
     width: 50%;
     height: 100%;
 
+
     @media (max-width: 768px) {
         width: 100%;
-        height: 40%;
-    
+        height: 50%;
+        .Lottie-1{
+            width: 100%;
+            height: 100%;
+        }
     }
 
 
@@ -40,7 +45,9 @@ const FormContainer = styled.div`
     height: 100vh;
     @media (max-width: 768px) {
         width: 100%;
-        height: 40%;
+        height: 50%;
+        margin: 0;
+        padding: 0;
     }
 `
 
@@ -50,7 +57,7 @@ const LoginPage = () => {
     return(
         <LoginContainer>
             <LottieContainer>
-                <Lottie animationData={Image} />
+                <Lottie className="Lottie-1" animationData={Image} />
             </LottieContainer>
 
           <FormContainer>

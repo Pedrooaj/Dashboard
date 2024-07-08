@@ -24,6 +24,8 @@ const FormContainer = styled.form`
 
     @media (max-width: 768px){
         max-width: 70%;
+        display: flex;
+       margin-bottom: 25px;
     }
 
     .switch{
