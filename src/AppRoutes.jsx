@@ -4,23 +4,15 @@ import HomePage from './Pages/Home'
 import LoginPage from './Pages/Login'
 import NotFound from './Pages/NotFoud'
 import { AuthProvider, AuthContext } from './Contexts/AuthContext'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Loading from './Pages/Loading'
-
-
-
-
-
-
-
-
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 function AppRoutes() {
-
-
   function Private({ children }) {
-    const { user, loading } = useContext(AuthContext);
     const navigate = useNavigate();
+    const { user, loading } = useContext(AuthContext);
     if (loading) {
       return <Loading />
     }
@@ -29,8 +21,6 @@ function AppRoutes() {
     }
     return children
   }
-
-
 
 
   return (
@@ -42,6 +32,7 @@ function AppRoutes() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
+        <ToastContainer />
       </AuthProvider>
     </Router>
 

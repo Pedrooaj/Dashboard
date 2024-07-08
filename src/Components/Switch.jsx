@@ -33,7 +33,7 @@ const SwitchInput = styled.input`
 `
 const Slider = styled.span`
     left: 2px;
-    top: 3px;
+    top: 2.5px;
     width: 10px;
     height: 10px;
     position: absolute;

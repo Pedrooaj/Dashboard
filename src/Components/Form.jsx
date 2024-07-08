@@ -9,9 +9,17 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import { SignInUser, RegisterUser } from "../Services/useActions"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const FormContainer = styled.form`
+
+    .nome{
+        transition: all 0.5s ease-in-out;
+        visibility: ${props => props.$nome ? "visible" : "hidden"};
+        opacity: ${props => props.$nome ? "1" : "0"};
+    }
+
     flex-grow: 1;
     max-width: 70%;
     height: 60%;
@@ -20,7 +28,8 @@ const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: ${props => props.$nome ? "32px" : "16px"};
+    transition: all 0.5s ease-in-out;
 
     @media (max-width: 768px){
         max-width: 70%;
@@ -54,10 +63,11 @@ const Titulo = styled.div`
 `
 
 
+
+
 const Form = () => {
-    const { isChecked } = useContext(AuthContext);
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const { isChecked, user } = useContext(AuthContext);
+    const [ usuario, setUsuario] = useState({ nome: "", email: "", password: "" })
     const navigate = useNavigate();
     if (isChecked === true) {
         var title = "Registrar"
@@ -67,22 +77,24 @@ const Form = () => {
         var text = "Crie sua conta!"
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         if (title === "Login") {
-            SignInUser(email, password)
+            await SignInUser(usuario.email, usuario.password)
             navigate("/")
+            toast.success(`Seja bem-vindo ${user?.displayName}`, { position: "bottom-left", autoClose: 2000 })
         }
         if (title === "Registrar") {
-            RegisterUser(email, password)
+            await RegisterUser(usuario.email, usuario.password, usuario.nome)
         }
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit}>
+        <FormContainer $nome={isChecked} onSubmit={handleSubmit}>
             <Titulo><Lottie loop={true} className="firebase" animationData={FirebaseLottie} /><h1>{title}</h1></Titulo>
-            <InputFloatingLabel onChange={(e) => setEmail(e.target.value)} label="Email" type="email" />
-            <InputFloatingLabel  onChange={(e) => setPassword(e.target.value)} label="Senha" type="password" thisPassword />
+            <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, nome: e.target.value })} className="nome" label="Nome" thisUser />
+            <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} thisEmail label="Email" type="email" />
+            <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, password: e.target.value })} label="Senha" type="password" thisPassword />
             <span className="switch">{text}<Switch /></span>
             <Button type="submit">Entrar <IoIosLogIn size={25} /></Button>
         </FormContainer>

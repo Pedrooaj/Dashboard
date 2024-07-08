@@ -1,9 +1,14 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
-const RegisterUser = async ( email, password) => {
+import { toast } from "react-toastify";
+const RegisterUser = async ( email, password, name ) => {
     try{
-        await createUserWithEmailAndPassword(auth, email, password)
+        await createUserWithEmailAndPassword(auth, email, password).then((newUser) => {
+            updateProfile(newUser.user, { displayName: name || "Anônimo" })
+        })
+        toast.success("Usuário criado com sucesso", { position: "bottom-left", autoClose: 2000 })
     }catch(error){
+        toast.error("Não foi possível criar o usuário", { position: "bottom-left", autoClose: 2000 })
         throw error
     }
 }
@@ -13,8 +18,8 @@ const SignInUser = async (email, password) => {
         await signInWithEmailAndPassword(auth, email, password)
         
     }catch(error){
-        console.error("Não foi possível fazer login", error);
-        throw error
+        throw toast.error("Usuário ou senha inválidos", { position: "bottom-left", autoClose: 2000 })
+        
     }
 }
 
