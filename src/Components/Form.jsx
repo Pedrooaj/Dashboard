@@ -31,7 +31,7 @@ const FormContainer = styled.form`
     .switch{
         font-size: 14px;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
         gap: 2px;
         width: 300px;
