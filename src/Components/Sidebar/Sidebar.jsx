@@ -3,12 +3,17 @@ import { useState } from 'react';
 import { FaRegUserCircle } from "react-icons/fa";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
+import { FaHome } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 
 
 
 const SidebarContainer = styled.section`
     max-width: 20%;
     height: 100vh;
+    z-index: 1;
+
 
     .Menu-Button {
       display: flex;
@@ -17,9 +22,10 @@ const SidebarContainer = styled.section`
     }
 
     .Menu-Title {
-      color: yellow;
-      margin-left: 20px;
+      color: white;
+
       font-size: 1.7rem;
+      letter-spacing: 0;
     }
 
   
@@ -30,16 +36,23 @@ const SidebarContainer = styled.section`
       padding: 0;
       width: 100%;
       display: flex;
-      gap: 30px;
-      justify-content: space-between;
+      gap: 15px;
       flex-direction: column;
       align-items: start;
     }
+
+
+
+    .Logout-li{
+      position: absolute;
+      bottom: 0;
+    }
+
     ul > li {
       display: flex;
       align-items: center;
     }
-    ul > li > button {
+    ul > li > a,button {
       background-color: darkslategrey;
       color: white;
       width: 56px;
@@ -53,7 +66,7 @@ const SidebarContainer = styled.section`
       cursor: pointer;
       transition: 0.2s;
     }
-    ul > li > button:hover {
+    ul > li > a:hover,button:hover {
       background: #8f44fd;
     }
 
@@ -146,8 +159,9 @@ const MenuButton = styled.button`
 `
 
 const Bar = styled.aside`
+    padding: 0 5px 0 0;
     height: 100vh;
-    background-color: aqua;
+    background: #091b43;
     width: ${props => props.$open ? '100%' : '25%'};
     display: flex;
     flex-direction: column;
@@ -158,6 +172,8 @@ const Bar = styled.aside`
     overflow: hidden;
 
     h1{
+      color: white;
+      letter-spacing: 1px;
       display: flex;
       align-items: center;
       gap: 4px;
@@ -166,7 +182,7 @@ const Bar = styled.aside`
     }
 `
 
-const Sidebar = ({logout}) => {
+const Sidebar = ({ logout }) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -177,24 +193,34 @@ const Sidebar = ({logout}) => {
   return (
     <SidebarContainer >
       <Bar $open={isOpen}>
-          <div className='Menu-Button'>
-            <MenuButton onClick={() => onClickMenu()}>
-              <span className={isOpen == false ? "burger" : "burger is-closed"}>
-                <span className={isOpen == false ? 'bar bar--1' : 'bar bar--1 is-closed'} />
-                <span className={isOpen == false ? 'bar bar--2' : 'bar bar--2 is-closed'} />
-                <span className={isOpen == false ? 'bar bar--3' : 'bar bar--3 is-closed'} />
-              </span>
-            </MenuButton>
-            <h1 className='Menu-Title'>Pedrooaj <IoLogoFirebase color='orangered' size={35} /></h1>
-          </div>
-          <ul>
-            <li><button>
-              <FaRegUserCircle size={25} />
-            </button> <h1>Perfil</h1></li>
-            <li><button onClick={() => logout()} className='Logout'>
-              <RiLogoutBoxLine size={25} />
-            </button><h1>Sair</h1></li>
-          </ul>
+        <div className='Menu-Button'>
+          <MenuButton onClick={() => onClickMenu()}>
+            <span className={isOpen == false ? "burger" : "burger is-closed"}>
+              <span className={isOpen == false ? 'bar bar--1' : 'bar bar--1 is-closed'} />
+              <span className={isOpen == false ? 'bar bar--2' : 'bar bar--2 is-closed'} />
+              <span className={isOpen == false ? 'bar bar--3' : 'bar bar--3 is-closed'} />
+            </span>
+          </MenuButton>
+          <h1 className='Menu-Title'>Pedrooaj <IoLogoFirebase color='orangered' size={35} /></h1>
+        </div>
+        <ul>
+          <li>
+            <Link to="/">
+                <FaHome size={25} />
+            </Link>
+            <h1>Home</h1>
+          </li>
+          <li>
+            <Link to="/Perfil">
+             
+                <FaRegUserCircle size={25} />
+             
+            </Link><h1>Perfil</h1></li>
+
+          <li className='Logout-li' ><button onClick={() => logout()} className='Logout'>
+            <RiLogoutBoxLine size={25} />
+          </button><h1>Sair</h1></li>
+        </ul>
       </Bar>
     </SidebarContainer>
   )

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import { GlobalStyle } from './GlobalStyles/GlobalStyle'
-import HomePage from './Pages/Home'
+import HomePage from './Pages/Home/HomePadrao'
 import LoginPage from './Pages/Login'
 import NotFound from './Pages/NotFoud'
 import { AuthProvider, AuthContext } from './Contexts/AuthContext'
@@ -28,7 +28,10 @@ function AppRoutes() {
       <AuthProvider>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<Private><HomePage /></Private>} />
+          <Route path='/' element={<Private><HomePage /></Private>}>
+              <Route index element={<h1>Home</h1>} />
+              <Route path='Perfil' element={<h1>Perfil</h1>} />
+          </Route>
           <Route path='/login' element={<LoginPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
