@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const ButtonContainer = styled.button`
     display: flex;
+    flex-wrap: nowrap;
+    min-width: 150px;
     justify-content: center;
     align-items: center;
     gap: 5px;

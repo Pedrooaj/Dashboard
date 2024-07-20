@@ -10,6 +10,10 @@ import { AuthContext } from "../Contexts/AuthContext";
 import { SignInUser, RegisterUser } from "../Services/useActions"
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { CgUserAdd } from "react-icons/cg";
+import { auth } from "../Services/firebase";
+
+
 
 
 const FormContainer = styled.form`
@@ -66,7 +70,7 @@ const Titulo = styled.div`
 
 
 const Form = () => {
-    const { isChecked, user } = useContext(AuthContext);
+    const { isChecked } = useContext(AuthContext);
     const [ usuario, setUsuario] = useState({ nome: "", email: "", password: "" })
     const navigate = useNavigate();
     if (isChecked === true) {
@@ -82,7 +86,7 @@ const Form = () => {
         if (title === "Login") {
             await SignInUser(usuario.email, usuario.password)
             navigate("/")
-            toast.success(`Seja bem-vindo ${user?.displayName}`, { position: "bottom-left", autoClose: 2000 })
+            toast.success(`Seja bem-vindo ${auth.currentUser.displayName}`, { position: "bottom-right", autoClose: 2000 })
         }
         if (title === "Registrar") {
             await RegisterUser(usuario.email, usuario.password, usuario.nome)
@@ -96,7 +100,8 @@ const Form = () => {
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} thisEmail label="Email" type="email" />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, password: e.target.value })} label="Senha" type="password" thisPassword />
             <span className="switch">{text}<Switch /></span>
-            <Button type="submit">Entrar <IoIosLogIn size={25} /></Button>
+            <Button type="submit">{title == "Login"? <>Entrar <IoIosLogIn size={25} /></>:<>Registrar-se <CgUserAdd size={25} />
+            </>}</Button>
         </FormContainer>
     )
 }

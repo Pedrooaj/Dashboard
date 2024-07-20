@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    
     const [isChecked, setIsChecked] = useState(false);
     const [loading, setLoading] = useState(true);
 
@@ -19,8 +20,13 @@ export const AuthProvider = ({ children }) => {
 
 
 
+
+
+    const values = { user, setUser, isChecked, setIsChecked, loading }
+
+
     return (
-        <AuthContext.Provider value={{ user, setUser, isChecked, setIsChecked, loading }}>
+        <AuthContext.Provider value={values}>
             {children}
         </AuthContext.Provider>
     )
