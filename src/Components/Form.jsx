@@ -18,6 +18,8 @@ import { auth } from "../Services/firebase";
 
 const FormContainer = styled.form`
 
+
+
     .nome{
         transition: all 0.5s ease-in-out;
         visibility: ${props => props.$nome ? "visible" : "hidden"};
@@ -65,7 +67,6 @@ const Titulo = styled.div`
         width: 120px;
     }
 `
-
 
 
 

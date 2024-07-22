@@ -44,8 +44,7 @@ const SidebarContainer = styled.section`
 
 
     .Logout-li{
-      position: absolute;
-      bottom: 0;
+      margin-top: auto;
     }
 
     ul > li {
@@ -73,6 +72,7 @@ const SidebarContainer = styled.section`
     .Logout:hover {
       background-color: red;
       opacity: 0.8;
+  
     }
 
     .burger {
@@ -212,9 +212,7 @@ const Sidebar = ({ logout }) => {
           </li>
           <li>
             <Link to="/Perfil">
-             
                 <FaRegUserCircle size={25} />
-             
             </Link><h1>Perfil</h1></li>
 
           <li className='Logout-li' ><button onClick={() => logout()} className='Logout'>

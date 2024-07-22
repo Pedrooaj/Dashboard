@@ -10,17 +10,21 @@ import { FaUser } from "react-icons/fa";
 
 const FloatingLabel = styled.div`
   position: relative;
-  width: 300px;
+  min-width: 55%;
   border: 2px solid #757575;
   border-radius: 7px;
-  display: block;
-  padding: 10px 10px 10px 5px;
+  display: flex;
+  justify-content: end;
+  padding: 10px 5px;
+
+
 
   
   input {
     border: none;
     font-size: 16px;
-    width: 90%;
+    width: 100%;
+    height: 100%;
     background-color: transparent;
 
     
@@ -58,9 +62,7 @@ const FloatingLabel = styled.div`
     z-index: 1;
     opacity: 0.6;
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 280px;
+    position: absolute;   
   }
 
   .icon{
