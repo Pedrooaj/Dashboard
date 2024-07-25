@@ -7,12 +7,14 @@ import { FaHome } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
-
-
 const SidebarContainer = styled.section`
     max-width: 25%;
     height: 100vh;
     z-index: 1;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
 
 
     .Menu-Button {
@@ -162,7 +164,7 @@ const Bar = styled.aside`
 
     height: 100vh;
     background: #18283f;
-    width: ${props => props.$open ? '125%' : '25%'};
+    width: ${props => props.$open ? '125%' : '30%'};
     display: flex;
     flex-direction: column;
     align-items: start;

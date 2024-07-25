@@ -2,6 +2,7 @@ import Sidebar from "../../Components/Sidebar/Sidebar"
 import { SignOutUser } from "../../Services/useActions"
 import styled from "styled-components"
 import { Outlet } from "react-router-dom"
+import { PerfilProvider } from "../../Contexts/PerfilContext"
 
 const HomeContainer = styled.div`
     width: 100%;
@@ -21,13 +22,15 @@ const HomeMain = styled.main`
 `
 
 const HomePage = () => {
-    return(
-        <HomeContainer>
-            <Sidebar logout={SignOutUser} />
-            <HomeMain>
-                <Outlet />
-            </HomeMain>
-        </HomeContainer>
+    return (
+        <PerfilProvider>
+            <HomeContainer>
+                <Sidebar logout={SignOutUser} />
+                <HomeMain>
+                    <Outlet />
+                </HomeMain>
+            </HomeContainer>
+        </PerfilProvider>
     )
 
 }
