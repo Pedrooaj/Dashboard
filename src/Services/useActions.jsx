@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
 import { toast } from "react-toastify";
+
 const RegisterUser = async ( email, password, name ) => {
     try{
         await createUserWithEmailAndPassword(auth, email, password).then((newUser) => {

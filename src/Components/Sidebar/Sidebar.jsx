@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const SidebarContainer = styled.section`
-    max-width: 20%;
+    max-width: 25%;
     height: 100vh;
     z-index: 1;
 
@@ -159,10 +159,10 @@ const MenuButton = styled.button`
 `
 
 const Bar = styled.aside`
-    padding: 0 5px 0 0;
+
     height: 100vh;
-    background: #091b43;
-    width: ${props => props.$open ? '100%' : '25%'};
+    background: #18283f;
+    width: ${props => props.$open ? '125%' : '25%'};
     display: flex;
     flex-direction: column;
     align-items: start;

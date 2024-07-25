@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import { GlobalStyle } from './GlobalStyles/GlobalStyle'
-import HomePage from './Pages/Home/HomePadrao'
+import HomePage from './Pages/Home'
 import LoginPage from './Pages/Login'
 import NotFound from './Pages/NotFoud'
 import { AuthProvider, AuthContext } from './Contexts/AuthContext'
@@ -8,6 +8,8 @@ import { useContext } from 'react'
 import Loading from './Pages/Loading'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
+import Perfil from './Pages/Home/Perfil'
+import Home from './Pages/Home/HomeIndex'
 
 function AppRoutes() {
   function Private({ children }) {
@@ -29,8 +31,8 @@ function AppRoutes() {
         <GlobalStyle />
         <Routes>
           <Route path='/' element={<Private><HomePage /></Private>}>
-              <Route index element={<h1>Home</h1>} />
-              <Route path='Perfil' element={<h1>Perfil</h1>} />
+              <Route index element={<Home />} />
+              <Route path='Perfil' element={<Perfil />} />
           </Route>
           <Route path='/login' element={<LoginPage />} />
           <Route path='*' element={<NotFound />} />
