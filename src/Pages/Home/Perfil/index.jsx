@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { auth } from "../../../Services/firebase";
 import { updateProfile } from "firebase/auth";
-import { FaRegUserCircle } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
 import Input from "../../../Components/InputForm";
 import Button from "../../../Components/Button";
-import { useContext } from "react";
+import { Suspense, useContext, lazy } from "react";
 import { PerfilContext } from "../../../Contexts/PerfilContext";
 import { toast } from "react-toastify";
+import { FaRegUserCircle } from "react-icons/fa";
+
+const PerfilImagem = lazy(() => import("../../../Components/PerfilImagem"))
+
 
 
 
@@ -24,18 +27,6 @@ padding: 10px;
 `
 
 
-const PerfilImage = styled.div`
-    position: absolute;
-    width: 195px;
-    height: 195px;
-    border-radius: 50%;
-    background-image: url(${props => props.$Imagem});
-    background-size: cover;
-    background-position: center;
-    border: 4px solid black;
-`
-
-
 
 const UserImage = styled.div`
 width: 200px;
@@ -43,7 +34,6 @@ height: 210px;
 border-radius: 50%;
 position: relative;
 display: flex;
-
 
 
 .AdicionarDiv{
@@ -95,9 +85,6 @@ display: flex;
 const Perfil = () => {
     const { name } = useContext(PerfilContext)
 
-
-
-
     function AtualizarPerfil(e) {
         e.preventDefault()
         updateProfile(auth.currentUser, { displayName: name })
@@ -106,11 +93,15 @@ const Perfil = () => {
 
 
 
+
     return (
         <UserForm onSubmit={AtualizarPerfil}>
             <Input referencia="Nome:" type="text" />
             <UserImage>
-                {auth.currentUser.photoURL ? <PerfilImage className="Image" $Imagem={auth.currentUser.photoURL} /> : <FaRegUserCircle className="Image" size={200} />}
+                <Suspense fallback={<FaRegUserCircle size={200} color="white" />}>
+                    <PerfilImagem />
+                </Suspense>
+
                 <div className="AdicionarDiv">
                     <div className="Adicionar">
                         <input className="input-file" accept="image/*" type="file" />
