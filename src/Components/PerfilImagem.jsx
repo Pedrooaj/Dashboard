@@ -1,5 +1,6 @@
 import { auth } from "../Services/firebase";
 import styled from "styled-components";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const PerfilImage = styled.div`
     position: absolute;
@@ -12,9 +13,9 @@ const PerfilImage = styled.div`
     border: 4px solid black;
 `
 
-function PerfilImagem(){
-    return <PerfilImage $Imagem={auth.currentUser.photoURL} />
-   
+function PerfilImagem() {
+    return auth.currentUser.photoURL ? <PerfilImage $Imagem={auth.currentUser.photoURL} /> : <FaRegUserCircle size={200}  />
+
 }
 
 export default PerfilImagem;

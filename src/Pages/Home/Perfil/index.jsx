@@ -87,7 +87,7 @@ const Perfil = () => {
 
     function AtualizarPerfil(e) {
         e.preventDefault()
-        updateProfile(auth.currentUser, { displayName: name })
+        updateProfile(auth.currentUser, { displayName: name, photoURL: null /* <= Url Image */ })
         toast.success("Perfil Atualizado com Sucesso", { autoClose: 2000, position: "bottom-right" })
     }
 
@@ -101,7 +101,6 @@ const Perfil = () => {
                 <Suspense fallback={<FaRegUserCircle size={200} color="white" />}>
                     <PerfilImagem />
                 </Suspense>
-
                 <div className="AdicionarDiv">
                     <div className="Adicionar">
                         <input className="input-file" accept="image/*" type="file" />
