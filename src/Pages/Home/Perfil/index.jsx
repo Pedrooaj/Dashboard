@@ -24,7 +24,7 @@ padding: 10px;
 `
 
 
-const PerfilImage = styled.img`
+const PerfilImage = styled.div`
     position: absolute;
     width: 195px;
     height: 195px;
@@ -103,6 +103,8 @@ const Perfil = () => {
         updateProfile(auth.currentUser, { displayName: name })
         toast.success("Perfil Atualizado com Sucesso", { autoClose: 2000, position: "bottom-right" })
     }
+
+
 
     return (
         <UserForm onSubmit={AtualizarPerfil}>

@@ -3,6 +3,10 @@ import { SignOutUser } from "../../Services/useActions"
 import styled from "styled-components"
 import { Outlet } from "react-router-dom"
 import { PerfilProvider } from "../../Contexts/PerfilContext"
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import Loading from "../Loading"
+
 
 const HomeContainer = styled.div`
     width: 100%;
@@ -21,13 +25,25 @@ const HomeMain = styled.main`
 
 `
 
+
+
 const HomePage = () => {
+    const [loading, setLoading] = useState(false)
+    const location = useLocation();
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 500)
+    }, [location])
+    
     return (
         <PerfilProvider>
             <HomeContainer>
                 <Sidebar logout={SignOutUser} />
                 <HomeMain>
-                    <Outlet />
+                    {loading ? <Loading /> : <Outlet />}
                 </HomeMain>
             </HomeContainer>
         </PerfilProvider>
