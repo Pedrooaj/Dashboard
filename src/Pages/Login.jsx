@@ -39,7 +39,7 @@ const LottieContainer = styled.div`
 
 const FormContainer = styled.div`
     display: flex;
-    background-color: azure;
+    background-color: transparent;
     justify-content: center;
     align-items: start;
     width: 50%;

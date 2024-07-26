@@ -17,6 +17,7 @@ const NotFoundContainer = styled.div`
         width: 60%;
     }
     h1{
+        color: azure;
         text-align: center;
     }
 `

@@ -16,6 +16,7 @@ const FloatingLabel = styled.div`
   display: flex;
   justify-content: end;
   padding: 10px 5px;
+  
 
 
 
@@ -27,8 +28,10 @@ const FloatingLabel = styled.div`
     height: 100%;
     background-color: transparent;
 
+
     
     &:focus {
+      background: transparent;
       outline: none;
       & ~ label {
         top: -16px;
@@ -70,9 +73,9 @@ const FloatingLabel = styled.div`
     position: absolute;
     left: -32px;
   border-radius: 100%;
-  border: 1px solid darkmagenta;
+  border: 1px solid black;
   padding: 2px;
-  color: orangered;
+  color: blue;
   }
 
   .icon-user{
@@ -80,9 +83,9 @@ const FloatingLabel = styled.div`
     position: absolute;
     left: -32px;
   border-radius: 100%;
-  border: 1px solid darkmagenta;
+  border: 1px solid black;
   padding: 2px;
-  color: blueviolet;
+  color: orange;
   }
 `
 

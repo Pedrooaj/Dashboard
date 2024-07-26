@@ -5,7 +5,6 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Loading from '../../Pages/Loading';
 
 const SidebarContainer = styled.section`
     max-width: 25%;
@@ -25,7 +24,6 @@ const SidebarContainer = styled.section`
 
     .Menu-Title {
       color: white;
-
       font-size: 1.7rem;
       letter-spacing: 0;
     }
@@ -160,7 +158,6 @@ const MenuButton = styled.button`
 `
 
 const Bar = styled.aside`
-
     height: 100vh;
     background: #18283f;
     width: ${props => props.$open ? '125%' : '30%'};

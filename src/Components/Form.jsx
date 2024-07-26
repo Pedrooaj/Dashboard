@@ -2,7 +2,7 @@ import styled from "styled-components";
 import InputFloatingLabel from "./InputFloatingLabel";
 import { IoIosLogIn } from "react-icons/io";
 import Button from "./Button";
-import FirebaseLottie from "../Lottie/Firebase-lottie.json";
+import ReactLottie from "../Lottie/React.json";
 import Lottie from "lottie-react";
 import Switch from "./Switch";
 import { useContext, useState } from "react";
@@ -19,7 +19,6 @@ import { auth } from "../Services/firebase";
 const FormContainer = styled.form`
 
 
-
     .nome{
         transition: all 0.5s ease-in-out;
         visibility: ${props => props.$nome ? "visible" : "hidden"};
@@ -28,7 +27,8 @@ const FormContainer = styled.form`
 
     flex-grow: 1;
     max-width: 70%;
-    height: 60%;
+    height: fit-content;
+    padding: 0 20px 20px 0;
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -36,6 +36,9 @@ const FormContainer = styled.form`
     justify-content: center;
     gap: ${props => props.$nome ? "32px" : "16px"};
     transition: all 0.5s ease-in-out;
+    background-color: #ffffff97;
+    border-radius: 20px;
+    
 
     @media (max-width: 768px){
         max-width: 70%;
@@ -59,6 +62,7 @@ const Titulo = styled.div`
         align-items: center;
         gap: 5px;
     h1{
+        color: orange;
         margin: 0;
         padding: 0;
     }
@@ -96,7 +100,7 @@ const Form = () => {
 
     return (
         <FormContainer $nome={isChecked} onSubmit={handleSubmit}>
-            <Titulo><Lottie loop={true} className="firebase" animationData={FirebaseLottie} /><h1>{title}</h1></Titulo>
+            <Titulo><Lottie loop={true} className="firebase" animationData={ReactLottie} /><h1>{title}</h1></Titulo>
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, nome: e.target.value })} className="nome" label="Nome" thisUser />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} thisEmail label="Email" type="email" />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, password: e.target.value })} label="Senha" type="password" thisPassword />
