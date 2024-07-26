@@ -23,7 +23,6 @@ const FormContainer = styled.form`
         transition: all 0.7s ease-in-out;
         visibility: ${props => props.$nome ? "visible" : "hidden"};
         opacity: ${props => props.$nome ? "1" : "0"};
-        
         position: ${props => props.$nome ? "relative" : "static"};
         transform: ${props => props.$nome ? "translateY(0)" : "translateY(-500%)"};
         
@@ -62,6 +61,7 @@ const FormContainer = styled.form`
 `
 
 const Titulo = styled.div`
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,6 +70,15 @@ const Titulo = styled.div`
         color: orange;
         margin: 0;
         padding: 0;
+    }
+
+    .Title-Div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        top: ${props => props.$check ? "0" : "50px"};
+        transition: all 0.7s ease-in-out;
     }
   
     .lottie{
@@ -105,7 +114,11 @@ const Form = () => {
 
     return (
         <FormContainer $nome={isChecked} onSubmit={handleSubmit}>
-            <Titulo><Lottie loop={true} className="lottie" animationData={ReactLottie} /><h1>{title}</h1></Titulo>
+            <Titulo $check={isChecked}>
+                <div className="Title-Div">
+                    <Lottie loop={true} className="lottie" animationData={ReactLottie} /><h1>{title}</h1>
+                </div>
+                </Titulo>
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, nome: e.target.value })} className="nome" label="Nome" thisUser />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} thisEmail label="Email" type="email" />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, password: e.target.value })} label="Senha" type="password" thisPassword />
