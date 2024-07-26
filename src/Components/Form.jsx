@@ -33,7 +33,7 @@ const FormContainer = styled.form`
     max-width: 70%;
     height: fit-content;
     padding: 0 20px 20px 0;
-    margin-top: 80px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
