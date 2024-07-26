@@ -9,14 +9,27 @@ const NotFoundContainer = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     gap: 10px;
     .Lottie{
-        height: 60%;
+
+        justify-self: start;
+        height: 45%;
         width: 60%;
+
     }
     h1{
+        font-size: 4rem;
+        margin: 15px 0 0 0;
+        padding: 0;
+        color: azure;
+        text-align: center;
+    }
+    p{
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0;
         color: azure;
         text-align: center;
     }
@@ -27,11 +40,13 @@ const NotFound = () => {
 
     return (
         <NotFoundContainer>
-            <h1>Ops Página não encontrada...</h1>
+            <h1>404</h1>
+            <p>Ops Página não encontrada...</p>
             <Button onClick={() => navigate(-1)}>Voltar</Button>
             <Lottie className="Lottie" loop={true} animationData={Image} />
+
         </NotFoundContainer>
- )
+    )
 }
 
 export default NotFound;
