@@ -32,7 +32,7 @@ const FormContainer = styled.form`
     flex-grow: 1;
     max-width: 70%;
     height: fit-content;
-    padding: 0 20px 20px 0;
+    padding: 0 0 25px 0;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,6 @@ const FormContainer = styled.form`
 
     @media (max-width: 768px){
         max-width: 70%;
-        display: flex;
        margin-bottom: 25px;
     }
 
