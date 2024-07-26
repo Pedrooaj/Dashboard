@@ -12,7 +12,7 @@ const SidebarContainer = styled.section`
     height: 100vh;
     z-index: 1;
 
-    @media (max-width: 480px) {
+    @media (max-width: 580px) {
       display: none;
     }
 

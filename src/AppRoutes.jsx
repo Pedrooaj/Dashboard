@@ -16,7 +16,7 @@ function AppRoutes() {
   const HomePage = lazy(() => import('./Pages/Home'))
   function Private({ children }) {
     const navigate = useNavigate();
-    const { user, loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     if (!user) {
       return navigate('/login')
@@ -32,7 +32,9 @@ function AppRoutes() {
         <Routes>
           <Route path='/' element={
             <Private>
-              <Suspense fallback={<Loading />}><HomePage /></Suspense>
+              <Suspense fallback={<Loading />}>
+                <HomePage />
+              </Suspense>
             </Private>
           }>
             <Route index element={<Home />} />

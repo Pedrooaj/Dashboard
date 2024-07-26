@@ -1,6 +1,9 @@
-import { auth } from "../Services/firebase";
+
 import styled from "styled-components";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useContext } from "react";
+import { PerfilContext } from "../Contexts/PerfilContext";
+import { toast } from "react-toastify";
 
 const PerfilImage = styled.div`
     position: absolute;
@@ -13,8 +16,11 @@ const PerfilImage = styled.div`
     border: 4px solid black;
 `
 
+
+
 function PerfilImagem() {
-    return auth.currentUser.photoURL ? <PerfilImage $Imagem={auth.currentUser.photoURL} /> : <FaRegUserCircle size={200}  />
+    const { urlImage } = useContext(PerfilContext);
+    return urlImage ? <PerfilImage $Imagem={urlImage} /> : <FaRegUserCircle size={200}  /> 
 
 }
 

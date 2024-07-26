@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { auth } from "../../../Services/firebase";
-import { updateProfile } from "firebase/auth";
 import { IoIosAddCircle } from "react-icons/io";
 import Input from "../../../Components/InputForm";
 import Button from "../../../Components/Button";
@@ -8,6 +6,8 @@ import { Suspense, useContext, lazy } from "react";
 import { PerfilContext } from "../../../Contexts/PerfilContext";
 import { toast } from "react-toastify";
 import { FaRegUserCircle } from "react-icons/fa";
+import { storage } from "../../../Services/firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const PerfilImagem = lazy(() => import("../../../Components/PerfilImagem"))
 
@@ -24,6 +24,12 @@ gap: 35px;
 background-color: #20354d;
 border-radius: 10px;
 padding: 10px;
+
+@media (max-width: 580px) {
+    width: 80%;
+    height: 60%;
+}
+
 `
 
 
@@ -83,13 +89,40 @@ display: flex;
 
 
 const Perfil = () => {
-    const { name } = useContext(PerfilContext)
+    const { seturlImage } = useContext(PerfilContext);
+
+
+    function uploadImage(file) {
+        if (!file) return;
+        const storageRef = ref(storage, `images/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        uploadTask.on('state_changed',
+            snapshot => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log(progress);
+            },
+            error => {
+                alert(error)
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    seturlImage(url)
+                })
+            }
+        )
+
+    }
+
 
     function AtualizarPerfil(e) {
         e.preventDefault()
-        updateProfile(auth.currentUser, { displayName: name, photoURL: null /* <= Url Image */ })
+        const file = e.target[1].files[0];
+        uploadImage(file)
+
         toast.success("Perfil Atualizado com Sucesso", { autoClose: 2000, position: "bottom-right" })
     }
+
+
 
 
 
