@@ -10,20 +10,23 @@ const LoginContainer = styled.div`
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
 
     @media (max-width: 768px) {
         align-items: center;
         justify-content: center;
         flex-direction: column-reverse;
-
     }
 `
 
 const LottieContainer = styled.div`
     width: 50%;
     height: 100%;
-
+    display: flex;
+    justify-content: center;   
+    align-items: center;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -60,7 +63,6 @@ const LoginPage = () => {
             <LottieContainer>
                 <Lottie className="Lottie-1" animationData={Image} />
             </LottieContainer>
-
           <FormContainer>
             <Form />
         </FormContainer>

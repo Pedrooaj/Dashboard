@@ -12,9 +12,10 @@ const HomeContainer = styled.div`
     min-height: 100vh;
     display: flex;
     background-color: transparent;
-    gap: 50px;
+    gap: 20px;
 `
 const HomeMain = styled.main`
+    margin-left: 5px;
     z-index: 0;
     width: 100%;
     min-height: 100vh;

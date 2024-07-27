@@ -49,6 +49,7 @@ const SidebarContainer = styled.section`
     ul > li {
       display: flex;
       align-items: center;
+
     }
     ul > li > a,button {
       background-color: darkslategrey;
@@ -160,7 +161,8 @@ const MenuButton = styled.button`
 const Bar = styled.aside`
     height: 100vh;
     background: #18283f;
-    width: ${props => props.$open ? '125%' : '30%'};
+    width: ${props => props.$open ? '100%' : '25%'};
+    padding-right: 5px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -202,7 +204,7 @@ const Sidebar = ({ logout }) => {
               <span className={isOpen == false ? 'bar bar--3' : 'bar bar--3 is-closed'} />
             </span>
           </MenuButton>
-          <h1 className='Menu-Title'>Pedrooaj <IoLogoFirebase color='orangered' size={35} /></h1>
+          <h1 className='Menu-Title'>Dashboard <IoLogoFirebase color='orangered' size={35} /></h1>
         </div>
         <ul>
           <li>

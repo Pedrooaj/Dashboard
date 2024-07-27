@@ -25,7 +25,6 @@ const FormContainer = styled.form`
         opacity: ${props => props.$nome ? "1" : "0"};
         position: ${props => props.$nome ? "relative" : "static"};
         transform: ${props => props.$nome ? "translateY(0)" : "translateY(-500%)"};
-        
 
     }
     position: relative;
@@ -44,9 +43,9 @@ const FormContainer = styled.form`
     border-radius: 20px;
     
 
-    @media (max-width: 768px){
-        max-width: 70%;
-       margin-bottom: 25px;
+    @media (max-width: 600px){
+       max-width: 80%;
+       margin: 10px;
     }
 
     .switch{
