@@ -12,7 +12,12 @@ const HomeContainer = styled.section`
     align-items: center;
     justify-content: start;
     flex-direction: column;
+    @media (max-width: 580px) {
+        gap: 40px;
+    }
     h1{
+        margin: 10px;
+        padding: 0;
         color: white;
     }
 `
