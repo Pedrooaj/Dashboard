@@ -3,7 +3,7 @@ import { GlobalStyle } from './GlobalStyles/GlobalStyle'
 import LoginPage from './Pages/Login'
 import NotFound from './Pages/NotFoud'
 import { AuthProvider, AuthContext } from './Contexts/AuthContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import Loading from './Pages/Loading'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
@@ -21,11 +21,11 @@ function AppRoutes() {
   function Private({ children }) {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-
     if (!user) {
-      return navigate('/login')
+      navigate('/login')
     }
     return children
+
   }
 
   return (

@@ -102,7 +102,7 @@ const Form = () => {
         e.preventDefault();
         if (title === "Login") {
             await SignInUser(usuario.email, usuario.password)
-            navigate("/")
+            navigate("/perfil")
             toast.success(`Seja bem-vindo ${auth.currentUser.displayName}`, { position: "bottom-right", autoClose: 2000 })
         }
         if (title === "Registrar") {

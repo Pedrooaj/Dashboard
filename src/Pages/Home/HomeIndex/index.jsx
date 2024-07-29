@@ -57,8 +57,8 @@ const Home = () => {
             <Title>Seja Bem Vindo <br /> {auth.currentUser.displayName}</Title>
             <h1>Minhas Redes</h1>
             <CardsContainer>
-                <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} key="1" description="" />
-                <Card name="Linkedin" info={<a href="https://www.linkedin.com/in/pedro-antônio-l3m0z">linkedin.com/in/pedro-antônio-l3m0z</a>} color="#3b82f6" footer="Formações: 3" total={<SlSocialLinkedin />} key="1" description="" />
+                <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} description="" />
+                <Card name="Linkedin" info={<a href="https://www.linkedin.com/in/pedro-antônio-l3m0z">linkedin.com/in/pedro-antônio-l3m0z</a>} color="#3b82f6" footer="Formações: 3" total={<SlSocialLinkedin />} description="" />
                 <Card contact name="Contato" info={<>
                     Instagram:
                     <br />
@@ -72,7 +72,7 @@ const Home = () => {
                     https://wa.link/2kpl54
                 </a>
                 </>
-                } color="white" footer="Instagram & Whatsapp" total={<PiShareNetworkBold />} key="1" description="" />
+                } color="white" footer="Instagram & Whatsapp" total={<PiShareNetworkBold />} description="" />
             </CardsContainer>
         </HomeContainer>
 

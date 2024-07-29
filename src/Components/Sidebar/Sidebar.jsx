@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { FaRegUserCircle } from "react-icons/fa";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
+import { IoInformationCircleOutline } from "react-icons/io5";
+
 import { Link } from 'react-router-dom';
 
 const SidebarContainer = styled.section`
@@ -208,15 +209,17 @@ const Sidebar = ({ logout }) => {
         </div>
         <ul>
           <li>
-            <Link to="/">
-                <FaHome size={25} />
-            </Link>
-            <h1>Home</h1>
-          </li>
-          <li>
             <Link to="/Perfil">
-                <FaRegUserCircle size={25} />
+              <FaRegUserCircle size={25} />
             </Link><h1>Perfil</h1></li>
+          <li>
+            <Link to="/">
+              <IoInformationCircleOutline size={25} />
+            </Link>
+            <h1>Info</h1>
+          </li>
+
+
 
           <li className='Logout-li' ><button onClick={() => logout()} className='Logout'>
             <RiLogoutBoxLine size={25} />
