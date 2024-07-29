@@ -3,7 +3,7 @@ import { useState } from "react";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { MdOutlineEditOff } from "react-icons/md";
 import { useContext } from "react";
-import { PerfilContext } from "../Contexts/PerfilContext";
+import { AuthContext } from "../Contexts/AuthContext";
 
 
 
@@ -66,7 +66,7 @@ const Referencia = styled.div`
 
 
 const Input = ({ type, referencia }) => {
-    const { name, setName } = useContext(PerfilContext);
+    const { user, setUser } = useContext(AuthContext);
     const [enable, setEnable] = useState(true);
 
 
@@ -77,7 +77,7 @@ const Input = ({ type, referencia }) => {
                 <h1>{referencia}</h1>
             </Referencia>
             <InputContainer>
-                <input value={enable ? "" : name} placeholder={name} onChange={(e) => setName(e.target.value)} type={type} disabled={enable} />
+                <input value={enable ? "" : user?.displayName} placeholder={user?.displayName} onChange={(e) => setUser({...user, displayName: e.target.value})} type={type} disabled={enable} />
                 {enable ? <MdOutlineEditOff onClick={() => setEnable(false)} className="Edit" /> : <MdOutlineModeEdit onClick={() => setEnable(true)} className="Edit" />}
             </InputContainer>
         </Container>

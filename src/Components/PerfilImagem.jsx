@@ -2,8 +2,8 @@
 import styled from "styled-components";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useContext } from "react";
-import { PerfilContext } from "../Contexts/PerfilContext";
-import { toast } from "react-toastify";
+
+import { AuthContext } from "../Contexts/AuthContext";
 
 const PerfilImage = styled.div`
     position: absolute;
@@ -19,8 +19,8 @@ const PerfilImage = styled.div`
 
 
 function PerfilImagem() {
-    const { urlImage } = useContext(PerfilContext);
-    return urlImage ? <PerfilImage $Imagem={urlImage} /> : <FaRegUserCircle size={200}  /> 
+    const { user } = useContext(AuthContext);
+    return user?.photoURL ? <PerfilImage $Imagem={user?.photoURL} /> : <FaRegUserCircle size={200}  /> 
 
 }
 

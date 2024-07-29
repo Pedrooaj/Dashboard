@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Card from "../../../Components/Card";
-import { auth } from "../../../Services/firebase";
 import { IoLogoGithub } from "react-icons/io";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { PiShareNetworkBold } from "react-icons/pi";
-
+import { useContext } from "react";
+import { AuthContext } from "../../../Contexts/AuthContext";
 const HomeContainer = styled.section`
     width: 100%;
     height: 100%;
@@ -52,9 +52,10 @@ const CardsContainer = styled.div`
 
 
 const Home = () => {
+    const { user } = useContext(AuthContext);
     return (
         <HomeContainer>
-            <Title>Seja Bem Vindo <br /> {auth.currentUser.displayName}</Title>
+            <Title>Seja Bem Vindo <br /> {user?.displayName}</Title>
             <h1>Minhas Redes</h1>
             <CardsContainer>
                 <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} description="" />

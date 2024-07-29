@@ -2,7 +2,7 @@ import Sidebar from "../../Components/Sidebar/Sidebar"
 import { SignOutUser } from "../../Services/useActions"
 import styled from "styled-components"
 import { Outlet } from "react-router-dom"
-import { PerfilProvider } from "../../Contexts/PerfilContext"
+
 
 
 
@@ -30,14 +30,13 @@ const HomeMain = styled.main`
 const HomePage = () => {
 
     return (
-        <PerfilProvider>
             <HomeContainer>
                 <Sidebar logout={SignOutUser} />
                 <HomeMain>
                     <Outlet />
                 </HomeMain>
             </HomeContainer>
-        </PerfilProvider>
+
     )
 
 }

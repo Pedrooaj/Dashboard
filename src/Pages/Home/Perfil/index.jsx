@@ -3,11 +3,11 @@ import { IoIosAddCircle } from "react-icons/io";
 import Input from "../../../Components/InputForm";
 import Button from "../../../Components/Button";
 import { Suspense, useContext, lazy } from "react";
-import { PerfilContext } from "../../../Contexts/PerfilContext";
 import { toast } from "react-toastify";
 import { FaRegUserCircle } from "react-icons/fa";
 import { storage } from "../../../Services/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { AuthContext } from "../../../Contexts/AuthContext";
 
 const PerfilImagem = lazy(() => import("../../../Components/PerfilImagem"))
 
@@ -89,7 +89,7 @@ display: flex;
 
 
 const Perfil = () => {
-    const { seturlImage } = useContext(PerfilContext);
+    const { seturlImage } = useContext(AuthContext);
 
 
     function uploadImage(file) {
