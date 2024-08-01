@@ -116,7 +116,7 @@ const Form = () => {
         <FormContainer $nome={isChecked} onSubmit={handleSubmit}>
             <Titulo $check={isChecked}>
                 <div className="Title-Div">
-                    <Lottie loop={true} className="lottie" animationData={ReactLottie} /><h1>{title}</h1>
+                    <Lottie loop={false} className="lottie" animationData={ReactLottie} /><h1>{title}</h1>
                 </div>
                 </Titulo>
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, nome: e.target.value })} className="nome" label="Nome" thisUser />
