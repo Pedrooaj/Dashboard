@@ -44,7 +44,7 @@ const FormContainer = styled.form`
     
 
     @media (max-width: 600px){
-       max-width: 80%;
+       max-width: 90%;
        margin: 10px;
     }
 
