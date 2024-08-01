@@ -3,8 +3,7 @@ import Card from "../../../Components/Card";
 import { IoLogoGithub } from "react-icons/io";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { PiShareNetworkBold } from "react-icons/pi";
-import { useContext } from "react";
-import { AuthContext } from "../../../Contexts/AuthContext";
+
 const HomeContainer = styled.section`
     width: 100%;
     height: 100%;
@@ -52,11 +51,11 @@ const CardsContainer = styled.div`
 
 
 const Home = () => {
-    const { user } = useContext(AuthContext);
+
     return (
         <HomeContainer>
-            <Title>Seja Bem Vindo <br /> {user?.displayName}</Title>
-            <h1>Minhas Redes</h1>
+            <Title>Projeto Desenvolvido Por Pedrooaj</Title>
+            <h1>Mais Informações Abaixo...</h1>
             <CardsContainer>
                 <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} description="" />
                 <Card name="Linkedin" info={<a href="https://www.linkedin.com/in/pedro-antônio-l3m0z">linkedin.com/in/pedro-antônio-l3m0z</a>} color="#3b82f6" footer="Formações: 3" total={<SlSocialLinkedin />} description="" />
