@@ -89,7 +89,7 @@ display: flex;
 
 
 const Perfil = () => {
-    const { seturlImage } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
 
 
     function uploadImage(file) {
@@ -106,7 +106,7 @@ const Perfil = () => {
             },
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    seturlImage(url)
+                    setUser({ ...user, photoURL: url })
                 })
             }
         )
@@ -118,7 +118,6 @@ const Perfil = () => {
         e.preventDefault()
         const file = e.target[1].files[0];
         uploadImage(file)
-
         toast.success("Perfil Atualizado com Sucesso", { autoClose: 2000, position: "bottom-right" })
     }
 
