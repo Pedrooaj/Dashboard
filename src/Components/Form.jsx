@@ -29,7 +29,7 @@ const FormContainer = styled.form`
     }
     position: relative;
     flex-grow: 1;
-    max-width: 70%;
+    max-width: 75%;
     height: fit-content;
     padding: 0 0 25px 0;
     margin: auto;
@@ -41,6 +41,8 @@ const FormContainer = styled.form`
     transition: all 0.5s ease-in-out;
     background-color: #ffffff97;
     border-radius: 20px;
+    
+
     
 
     @media (max-width: 600px){
