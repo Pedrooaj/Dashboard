@@ -27,6 +27,9 @@ const Title = styled.h1`
     text-align: center;
     height: 20%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     `
 
 const CardsContainer = styled.div`
@@ -54,7 +57,7 @@ const Home = () => {
 
     return (
         <HomeContainer>
-
+            <Title>Projeto Desenvolvido Por Pedrooaj &copy;</Title>
             <h1>Minhas Redes:</h1>
             <CardsContainer>
                 <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} description="" />
@@ -62,19 +65,19 @@ const Home = () => {
                 <Card contact name="Contato" info={<>
                     Instagram:
                     <br />
-                <a href="https://www.instagram.com/pedrooaj/">
-                    instagram.com/pedrooaj
-                </a>
-                <br />
-                WhatsApp:
-                <br />
-                <a href="https://wa.link/2kpl54">
-                    https://wa.link/2kpl54
-                </a>
+                    <a href="https://www.instagram.com/pedrooaj/">
+                        instagram.com/pedrooaj
+                    </a>
+                    <br />
+                    WhatsApp:
+                    <br />
+                    <a href="https://wa.link/2kpl54">
+                        https://wa.link/2kpl54
+                    </a>
                 </>
                 } color="white" footer="Instagram & Whatsapp" total={<PiShareNetworkBold />} description="" />
             </CardsContainer>
-            <Title>Projeto Desenvolvido Por Pedrooaj</Title>
+
         </HomeContainer>
 
     );
