@@ -54,8 +54,8 @@ const Home = () => {
 
     return (
         <HomeContainer>
-            <Title>Projeto Desenvolvido Por Pedrooaj</Title>
-            <h1>Mais Informações Abaixo...</h1>
+
+            <h1>Minhas Redes:</h1>
             <CardsContainer>
                 <Card name="GitHub" info={<a href="https://github.com/Pedrooaj/">github.com/Pedrooaj</a>} color="black" footer="Projetos: 4" total={<IoLogoGithub />} description="" />
                 <Card name="Linkedin" info={<a href="https://www.linkedin.com/in/pedro-antônio-l3m0z">linkedin.com/in/pedro-antônio-l3m0z</a>} color="#3b82f6" footer="Formações: 3" total={<SlSocialLinkedin />} description="" />
@@ -74,6 +74,7 @@ const Home = () => {
                 </>
                 } color="white" footer="Instagram & Whatsapp" total={<PiShareNetworkBold />} description="" />
             </CardsContainer>
+            <Title>Projeto Desenvolvido Por Pedrooaj</Title>
         </HomeContainer>
 
     );
