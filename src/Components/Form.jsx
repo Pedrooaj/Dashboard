@@ -24,7 +24,7 @@ const FormContainer = styled.form`
         visibility: ${props => props.$nome ? "visible" : "hidden"};
         opacity: ${props => props.$nome ? "1" : "0"};
         position: ${props => props.$nome ? "relative" : "static"};
-        transform: ${props => props.$nome ? "translateY(0)" : "translateY(-500%)"};
+        transform: ${props => props.$nome ? "translateY(0)" : "translateY(150%)"};
 
     }
     position: relative;
