@@ -4,7 +4,6 @@ import { IoIosLogIn } from "react-icons/io";
 import Button from "./Button";
 import ReactLottie from "../Lottie/React.json";
 import Lottie from "lottie-react";
-import Switch from "./Switch";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import { SignInUser, RegisterUser } from "../Services/useActions"
@@ -17,6 +16,25 @@ import { auth } from "../Services/firebase";
 
 
 const FormContainer = styled.form`
+
+    .Register-Login{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        position: relative;
+        & p{
+            top: -25px;
+            position: absolute;
+            padding: 0;
+           cursor: pointer;
+           color: blue; 
+        }
+        & p:hover{
+
+            opacity: 0.7;
+        }
+    }
 
 
     .nome{
@@ -89,7 +107,7 @@ const Titulo = styled.div`
 
 
 const Form = () => {
-    const { isChecked } = useContext(AuthContext);
+    const { isChecked, setIsChecked } = useContext(AuthContext);
     const [ usuario, setUsuario] = useState({ nome: "", email: "", password: "" })
     const navigate = useNavigate();
     if (isChecked === true) {
@@ -122,7 +140,11 @@ const Form = () => {
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, nome: e.target.value })} className="nome" label="Nome" thisUser />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} thisEmail label="Email" type="email" />
             <InputFloatingLabel onChange={(e) => setUsuario({ ...usuario, password: e.target.value })} label="Senha" type="password" thisPassword />
-            <span className="switch">{text}<Switch /></span>
+            <div className="Register-Login">
+                <p onClick={() => setIsChecked(!isChecked)}>
+                    {isChecked ? "Já tem conta?" : "Crie sua conta!"}
+                </p>
+            </div>
             <Button type="submit">{title == "Login"? <>Entrar <IoIosLogIn size={25} /></>:<>Registrar-se <CgUserAdd size={25} />
             </>}</Button>
         </FormContainer>

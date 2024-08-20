@@ -3,13 +3,21 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_REACT_API_URL,
-  authDomain: import.meta.env.VITE_REACT_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_REACT_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_REACT_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_REACT_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_REACT_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_REACT_FIREBASE_MEASUREMENT_ID,
+
+  apiKey: "AIzaSyDM0eo6pkb0mqRuiMzU4tJpMmfZUJxnocI",
+
+  authDomain: "dashboard-c6efc.firebaseapp.com",
+
+  projectId: "dashboard-c6efc",
+
+  storageBucket: "dashboard-c6efc.appspot.com",
+
+  messagingSenderId: "748497722137",
+
+  appId: "1:748497722137:web:29b7cc91d5a09a3e73c388",
+
+  measurementId: "G-0WN1ZC1QZK"
+
 };
 
 
