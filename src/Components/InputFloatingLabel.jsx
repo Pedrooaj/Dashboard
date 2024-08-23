@@ -74,16 +74,18 @@ const FloatingLabel = styled.div`
     left: -32px;
 
   padding: 2px;
-  color: blue;
+      border: 1px solid black;
+    border-radius: 100%;
+
   }
 
   .icon-user{
     top: 8px;
     position: absolute;
     left: -32px;
-
   padding: 2px;
-
+    border: 1px solid black;
+    border-radius: 100%;
   }
 `
 
