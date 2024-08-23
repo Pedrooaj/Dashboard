@@ -72,8 +72,7 @@ const FloatingLabel = styled.div`
     top: 8px;
     position: absolute;
     left: -32px;
-  border-radius: 100%;
-  border: 1px solid black;
+
   padding: 2px;
   color: blue;
   }
@@ -82,10 +81,9 @@ const FloatingLabel = styled.div`
     top: 8px;
     position: absolute;
     left: -32px;
-  border-radius: 100%;
-  border: 1px solid black;
+
   padding: 2px;
-  color: orange;
+
   }
 `
 
