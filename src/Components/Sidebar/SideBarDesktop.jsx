@@ -7,7 +7,7 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
 const SidebarContainer = styled.section`
-    max-width: 25%;
+    max-width: 21%;
     height: 100vh;
     z-index: 1;
 
