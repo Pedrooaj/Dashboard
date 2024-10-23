@@ -44,7 +44,7 @@ Clone o projeto
 Entre no diretório do projeto
 
 ```bash
-  cd Api-Rest
+  cd Dashboard
 ```
 
 Instale as dependências
