@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, up
 import { auth } from "./firebase";
 import { toast } from "react-toastify";
 
+
 const RegisterUser = async ( email, password, name ) => {
     try{
         await createUserWithEmailAndPassword(auth, email, password).then((newUser) => {
@@ -17,11 +18,12 @@ const RegisterUser = async ( email, password, name ) => {
 const SignInUser = async (email, password) => {
     try{
         await signInWithEmailAndPassword(auth, email, password)
-        
+        return "/perfil"
     }catch(error){
-        throw toast.error("Usuário ou senha inválidos", { position: "bottom-left", autoClose: 2000 })
-        
-    }
+        toast.error("Usuário ou senha inválidos", { position: "bottom-left", autoClose: 2000 })
+        return 0
+
+    } 
 }
 
 const SignOutUser = async () => {

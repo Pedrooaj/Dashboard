@@ -7,9 +7,11 @@ import { useContext, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Perfil from './Pages/Home/Perfil';
-import Home from './Pages/Home/HomeIndex';
+import Home from './Pages/Home';
 import GlobalRoute from './Pages/RotaGlobal';
-import HomePage from "./Pages/Home';
+import HomeIndex from "./Pages/Home/HomeIndex"
+import Loading from "./Pages/Loading"
+
 
 
 
@@ -18,11 +20,18 @@ function AppRoutes() {
   function Private({ children }) {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (!user) {
+        navigate('/login');
+      }
+    }, [user, navigate]);
+  
     if (!user) {
-      navigate('/login')
+      return <Loading />;
     }
-    return children
-
+  
+    return children;
   }
 
   return (
@@ -33,10 +42,10 @@ function AppRoutes() {
           <Route path='/' element={<GlobalRoute />}>
             <Route path='/' element={
               <Private>
-                  <HomePage />
+                  <Home />
               </Private>
             }>
-              <Route index element={<Home />} />
+              <Route index element={<HomeIndex />} />
               <Route path='Perfil' element={<Perfil />} />
             </Route>
             <Route path='/login' element={<LoginPage />} />

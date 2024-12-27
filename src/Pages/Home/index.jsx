@@ -3,10 +3,6 @@ import { SignOutUser } from "../../Services/useActions"
 import styled from "styled-components"
 import { Outlet } from "react-router-dom"
 
-
-
-
-
 const HomeContainer = styled.div`
     width: 100%;
     min-height: 100vh;
@@ -27,8 +23,7 @@ const HomeMain = styled.main`
 
 
 
-const HomePage = () => {
-
+const Home = () => {
     return (
             <HomeContainer>
                 <Sidebar logout={SignOutUser} />
@@ -41,4 +36,4 @@ const HomePage = () => {
 
 }
 
-export default HomePage
+export default Home

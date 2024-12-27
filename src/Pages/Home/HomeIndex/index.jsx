@@ -53,7 +53,7 @@ const CardsContainer = styled.div`
 
 
 
-const Home = () => {
+const HomeIndex = () => {
 
     return (
         <HomeContainer>
@@ -83,4 +83,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default HomeIndex;
