@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Perfil from './Pages/Home/Perfil';
 import Home from './Pages/Home/HomeIndex';
 import GlobalRoute from './Pages/RotaGlobal';
-import HomePage from "./Pages/HomePage';
+import HomePage from "./Pages/Home/index';
 
 
 
