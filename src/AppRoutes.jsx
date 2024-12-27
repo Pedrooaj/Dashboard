@@ -1,15 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
-import { GlobalStyle } from './GlobalStyles/GlobalStyle'
-import LoginPage from './Pages/Login'
-import NotFound from './Pages/NotFoud'
-import { AuthProvider, AuthContext } from './Contexts/AuthContext'
-import { useContext, useEffect } from 'react'
-import { ToastContainer } from 'react-toastify'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { GlobalStyle } from './GlobalStyles/GlobalStyle';
+import LoginPage from './Pages/Login';
+import NotFound from './Pages/NotFoud';
+import { AuthProvider, AuthContext } from './Contexts/AuthContext';
+import { useContext, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import Perfil from './Pages/Home/Perfil'
-import Home from './Pages/Home/HomeIndex'
-import GlobalRoute from './Pages/RotaGlobal'
-
+import Perfil from './Pages/Home/Perfil';
+import Home from './Pages/Home/HomeIndex';
+import GlobalRoute from './Pages/RotaGlobal';
+import HomePage from "./Pages/HomePage';
 
 
 
