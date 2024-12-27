@@ -4,19 +4,16 @@ import LoginPage from './Pages/Login'
 import NotFound from './Pages/NotFoud'
 import { AuthProvider, AuthContext } from './Contexts/AuthContext'
 import { useContext, useEffect } from 'react'
-import Loading from './Pages/Loading'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import Perfil from './Pages/Home/Perfil'
 import Home from './Pages/Home/HomeIndex'
-import { Suspense, lazy } from 'react'
 import GlobalRoute from './Pages/RotaGlobal'
 
 
 
 
 function AppRoutes() {
-  const HomePage = lazy(() => import('./Pages/Home'))
 
   function Private({ children }) {
     const { user } = useContext(AuthContext);
@@ -36,9 +33,7 @@ function AppRoutes() {
           <Route path='/' element={<GlobalRoute />}>
             <Route path='/' element={
               <Private>
-                <Suspense fallback={<Loading />}>
                   <HomePage />
-                </Suspense>
               </Private>
             }>
               <Route index element={<Home />} />
